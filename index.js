@@ -42,6 +42,10 @@ app.all('*', (req, res) => {
     }
   };
 
+  if(process.env.LABEL) {
+    echo.os.label = process.env.LABEL;
+  }
+
   if(req.is('application/json')){
     echo.json = JSON.parse(req.body)
   }
